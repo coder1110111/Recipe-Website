@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+    <!--<script src="/login-signup.js"></script>
+    <link rel="icon" href="/Resources/ETLogo.jpg" type="image/icon type">
+    <link rel="stylesheet" href="/Resources/stylein.css">-->
+    <link rel="stylesheet" href="signUp.css">
+</head>
+<body>
+    <div class="sign-up-contain">
+        <h2>Sign-Up</h2>
+        <form id="signupForm" onsubmit="checkUser(event)">
+            <div class="input-group">
+                <label for="username">Name:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="passwrd">Password:</label>
+                <input type="password" id="passwrd" name="passwrd" required>
+            </div>
+            <div class="input-group">
+                <label for="repeat_passwrd">Repeat Password:</label>
+                <input type="password" id="repeat_passwrd" name="repeat_passwrd">
+                <span id="error"></span>
+            </div>
+            <button type="submit">Sign-Up!</button>
+        </form>
+        <p class="add-text">Already a User? Go to <a href="http://localhost:8080/user/login">Login!</a></p>
+    </div>
+    
+</body>
+</html>
