@@ -1,0 +1,60 @@
+.recipe-details {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #120d0d;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.recipe-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.recipe-buttons button {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background-color: #f04d4d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.recipe-buttons button:hover {
+    background-color: #c63d3d;
+}
+
+.review-section {
+    margin-top: 2rem;
+}
+
+.review-section textarea {
+    width: 100%;
+    height: 100px;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.review-section button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.review-list {
+    margin-top: 1rem;
+}
+
+.review-item {
+    background: #0a0303;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}

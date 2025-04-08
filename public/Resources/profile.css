@@ -1,0 +1,61 @@
+.profile-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h2 {
+    margin-bottom: 0.5rem;
+}
+
+.profile-bio {
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.follow-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.follow-btn.following {
+    background-color: #28a745;
+}
+
+.user-recipes {
+    padding: 2rem;
+}
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.recipe img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.recipe-content {
+    padding: 1rem;
+}
+
+.recipe-content h3 {
+    margin-top: 0;
+}

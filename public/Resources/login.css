@@ -3,13 +3,13 @@ body {
     display: flex;
     justify-content: center;
     height: 100vh;
-    background-color: #143988;
+    background-color: #6aafcd;
     margin: 0;
 }
 
 .login-contain {
-    margin-top: 15%;
-    background: rgba(19, 207, 194, 0.192);
+    margin: auto;
+    background: rgba(96, 232, 223, 0.192);
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
