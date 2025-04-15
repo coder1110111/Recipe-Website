@@ -14,7 +14,6 @@ async function checklogin(event) {
             },
             body: JSON.stringify({email, password})
         });
-
         console.log('Login Request Sent!');
         if(response.ok) {
             const result = await response.json();
@@ -40,6 +39,14 @@ async function checkSignUp(event) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('passwrd').value;
     const rePass = document.getElementById('repeat_passwrd').value;
+    const adminCheck = document.getElementById('admin');
+    let is_admin;
+    if(adminCheck.checked == true) {
+        is_admin=true;
+    }
+    else {
+        is_admin=false;
+    }
 
     const errSpan = document.getElementById('error');
     if(rePass !== password) {
@@ -48,7 +55,7 @@ async function checkSignUp(event) {
     } else {
         errSpan.innerHTML=``;
         console.log('Proceeding!');
-        console.log(username,' ', email, ' ', password);
+        console.log(username,' ', email, ' ', password, ' ', is_admin);
 
         try {
 
@@ -57,7 +64,7 @@ async function checkSignUp(event) {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({username, email, password})
+                body: JSON.stringify({username, email, password, is_admin})
             });
 
             console.log('Request Sent!');

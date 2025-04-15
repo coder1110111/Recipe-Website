@@ -1,12 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const profileController = require('../controller/profileControl');
+const personalController = require('../controller/personalControl');
 const authenticate = require('../middleware/authentication');
 
+router.get('/getMyProfilePage', personalController.getMyProfilePage)
+router.get('/my-profile', authenticate, personalController.getMyData);
+router.put('/update-bio', authenticate, personalController.updateBio);
+router.get('/recipe/favorites', personalController.getFavoritesPage);
+router.get('/favorites', authenticate, personalController.getUserFavorites)
+router.get('/collections', personalController.getCollectionsPage);
+router.delete('/delete-recipe/:recipeId', authenticate, personalController.deleteRecipe);
+router.get('/edit-recipe', personalController.getEditPage);
 
-//router.get('/selfProfile',authenticate, profileController.getMyProfile);
-router.get('/profile', profileController.getProfilePage);
-router.get('/profile/:id', authenticate, profileController.getProfileInfo);
 
 module.exports = router;

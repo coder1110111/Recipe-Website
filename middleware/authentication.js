@@ -13,6 +13,10 @@ const authenticate = async(req, res, next) => {
         if(!user) {
             console.log('No User!');
         }
+
+        if(user.is_banned) {
+            return res.status(403).json({message: 'You are banned. Communicate with an Admin'});
+        }
         req.user = user;
         console.log('Authenticated!');
         next();

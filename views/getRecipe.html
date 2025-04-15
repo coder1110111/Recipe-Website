@@ -5,32 +5,34 @@
   <link rel="stylesheet" href="\Resources\header.css">
   <link rel="stylesheet" href="\Resources\main.css">
   <link rel="stylesheet" href="\Resources\singleRecipe.css">
+
+  <script src="/getRecipe.js"></script>
   <title>Recipe Details</title>
 </head>
 <body>
     <header>RECIPES HAVEN</header>
     <nav class="navbar">
         <div class="nav-links">
-            <a href="http://localhost:3030/home/page">Recipe</a>
+            <a href="http://localhost:3030/home/page" class="active">Recipe</a>
             <a href="http://localhost:3030/recipe/share-a-recipe">Share a Recipe</a>
             <a href="http://localhost:3030/recipe/search">Search</a>
-            <a href="http://localhost:3030/recipe/favorites">Favorites</a>
-            <a href="http://localhost:3030/collections">Collections</a>
             <a href="http://localhost:3030/users">Authors</a>
             <a href="http://localhost:3030/activity">Activity Feed</a>
-            <a href="http://localhost:3030/user/profile">Profile</a>
-            <a href="http://localhost:3030/admin/dashboard" class="admin-only">Admin-Panel</a>
+            <a href="http://localhost:3030/user/getMyProfilePage">Profile</a>
+            <a href="http://localhost:3030/user/recipe/favorites">Favorites</a>
+            <a href="http://localhost:3030/user/collections">Collections</a>
         </div>
-        <a id="logoutBtn" class="logout">Logout</a>
     </nav>
     <div class="recipe-details" id="recipe-details">
         <div class="recipe-buttons">
             <button id="addFavorite">Add to Favorites</button>
             <button id="addCollection">Add to Collection</button>
+            <div id="collection-menu" class="collection-popup-menu" style="display: none;"></div>
         </div>
         <h2 id="recipe-title">Loading...</h2>
         <img id="recipe-image" src="" alt="Recipe Image" style="max-width:100%; border-radius:10px;" />
         <p><strong>Made By:</strong> <span id="recipe-author"></span></p>
+        <p><strong>Cuisine Type:</strong> <span id="cuisine"></span></p>
         <p><strong>Description:</strong> <span id="recipe-description"></span></p>
         <p><strong>Ingredients:</strong> <span id="recipe-ingredients"></span></p>
         <p><strong>Instructions:</strong> <span id="recipe-instructions"></span></p>
@@ -46,102 +48,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const backendApi = 'http://localhost:3030';
-
-        const recipeId = new URLSearchParams(window.location.search).get('id');
-
-        async function loadRecipe() {
-            const res = await fetch(`/recipe/recipeDetails/${recipeId}`);
-            const data = await res.json();
-            console.log(data);
-            console.log(data.UserId);
-            document.getElementById('recipe-title').textContent = data.title;
-            document.getElementById('recipe-author').textContent = data.User.name;
-            document.getElementById('recipe-description').textContent = data.description;
-            document.getElementById('recipe-ingredients').textContent = data.ingredients;
-            document.getElementById('recipe-instructions').textContent = data.instructions;
-            document.getElementById('recipe-image').src = data.image_url;
-
-            document.getElementById('recipe-author').style.cursor = 'pointer';
-            document.getElementById('recipe-author').addEventListener('click', () => {
-                window.location.href = `${backendApi}/user/profile?userId=${data.UserId}`;
-            })
-        }
-
-        async function loadLatestReviews() {
-            const res = await fetch(`${backendApi}/review/${recipeId}`);
-            const reviews = await res.json();
-            console.log(reviews);
-            const container = document.getElementById('latest-reviews');
-
-            reviews.forEach(review => {
-                const div = document.createElement('div');
-                div.className = 'review-item';
-
-                const usernameEl = document.createElement('p');
-                usernameEl.textContent = review.User.name;
-                usernameEl.style.fontWeight='bold';
-                usernameEl.style.cursor = 'pointer';
-                usernameEl.style.marginBottom = '0.5rem';
-                usernameEl.style.color='#007bff';
-
-                usernameEl.addEventListener('click', () => {
-                    window.location.href = `${backendApi}/user/profile?userId=${review.UserId}`;
-                });
-
-                const commentEl = document.createElement('p');
-                commentEl.textContent = review.comment;
-
-                div.appendChild(usernameEl);
-                div.appendChild(commentEl);
-                container.appendChild(div);
-            });
-        }
-
-        document.getElementById('addFavorite').addEventListener('click', async () => {
-            await fetch(`${backendApi}/favorites/add`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    authorization: localStorage.getItem('token')
-                },
-                body: JSON.stringify({ recipeId })
-            });
-            alert('Added to favorites!');
-        });
-
-        document.getElementById('addCollection').addEventListener('click', async () => {
-            await fetch(`${backendApi}/collections/add`, {
-                method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    authorization: localStorage.getItem('token')
-                },
-                body: JSON.stringify({ recipeId })
-            });
-            alert('Added to collection!');
-        });
-
-        document.getElementById('submitReview').addEventListener('click', async () => {
-            const comment = document.getElementById('reviewText').value;
-            await fetch(`${backendApi}/review/${recipeId}`, {
-                method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    authorization: localStorage.getItem('token')
-                },
-                body: JSON.stringify({ comment })
-            });
-            alert('Review submitted!');
-            document.getElementById('reviewText').value = '';
-            document.getElementById('latest-reviews').innerHTML = '<h4>Latest Reviews</h4>';
-            loadLatestReviews();
-        });
-
-        loadRecipe();
-        loadLatestReviews();
-    </script>
 </body>
 </html>

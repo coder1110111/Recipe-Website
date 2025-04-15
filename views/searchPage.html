@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Resources/header.css">
+    <link rel="stylesheet" href="/Resources/main.css">
+    <link rel="stylesheet" href="/Resources/search.css">
+    <script src="/search.js"></script>
+    <title>Search-Recipes</title>
+</head>
+<body>
+    <header>RECIPES HAVEN</header>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="http://localhost:3030/home/page">Recipe</a>
+            <a href="http://localhost:3030/recipe/share-a-recipe">Share a Recipe</a>
+            <a href="http://localhost:3030/recipe/search" class="active">Search</a>
+            <a href="http://localhost:3030/users">Authors</a>
+            <a href="http://localhost:3030/activity">Activity Feed</a>
+            <a href="http://localhost:3030/user/getMyProfilePage">Profile</a>
+            <a href="http://localhost:3030/user/recipe/favorites">Favorites</a>
+            <a href="http://localhost:3030/user/collections">Collections</a>
+        </div>
+    </nav>
+
+    <div class="search-container">
+        <form id="search-form" class="search-bar">
+            <input type="text" id="search-input" placeholder="Search keywords, ingredients or Category">
+
+            <select name="diet-filter" id="diet-filter">
+                <option value="" selected>All Diets</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Vegan">Vegan</option>
+                <option value="Non-Vegetarian">Non-vegetarian</option>
+                <option value="Keto">Keto</option>
+                <option value="Mediterranean"></option>
+            </select>
+
+            <select name="prep-time-filter" id="prep-time-filter">
+                <option value="" selected>All Prep Times</option>
+                <option value="15">Under 15 mins</option>
+                <option value="30">Under 30 mins</option>
+                <option value="60">Under 1 hour</option>
+            </select>
+
+            <button type="submit">Search</button>
+        </form>
+
+        <div id="results-container">
+            <!--Search results displayed here-->
+        </div>
+    </div>
+</body>
+</html>

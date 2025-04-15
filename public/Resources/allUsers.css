@@ -1,0 +1,29 @@
+.authors-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.user-card {
+    background-color: #8b0000;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.user-card:hover {
+    background-color: #eaeaea;
+}
+
+.user-card h3 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+}
+
+.user-stats {
+    font-size: 14px;
+    color: #857a7a;
+}

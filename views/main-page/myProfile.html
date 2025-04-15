@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>My Profile</title>
+    <link rel="stylesheet" href="/Resources/header.css" />
+    <link rel="stylesheet" href="/Resources/main.css" />
+    <link rel="stylesheet" href="/Resources/myProfile.css">
+</head>
+<body>
+    <header>RECIPES HAVEN</header>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="http://localhost:3030/home/page">Recipe</a>
+            <a href="http://localhost:3030/recipe/share-a-recipe">Share a Recipe</a>
+            <a href="http://localhost:3030/recipe/search">Search</a>
+            <a href="http://localhost:3030/users">Authors</a>
+            <a href="http://localhost:3030/activity">Activity Feed</a>
+            <a href="http://localhost:3030/user/getMyProfilePage" class="active">Profile</a>
+            <a href="http://localhost:3030/user/recipe/favorites">Favorites</a>
+            <a href="http://localhost:3030/user/collections">Collections</a>
+            <a href="http://localhost:3030/admin/dashboard" class="admin-only">Admin-Panel</a>
+        </div>   
+        <a id="logoutBtn" class="logout">Logout</a>
+    </nav>
+
+    <div class="profile-container">
+        <div class="header-section">
+            <h2 id="username">Username</h2>
+            <button class="edit-btn" id="edit-bio">Edit Bio</button>
+        </div>
+        <p class="bio" id="bio"></p>
+
+        <div class="followings-tab">
+            <h3>Following</h3>
+            <ul id="following-list"></ul>
+        </div>
+
+        <hr />
+
+        <div class="recipes-container" id="my-recipes"></div>
+    </div>
+
+  <script src="/myProfile.js"></script>
+</body>
+</html>

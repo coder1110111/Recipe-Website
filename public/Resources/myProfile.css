@@ -1,0 +1,83 @@
+.profile-container {
+    padding: 20px;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bio {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.edit-btn {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.followings-tab {
+    margin-top: 20px;
+}
+
+.followings-tab ul {
+    list-style: none;
+    padding: 0;
+}
+
+.followings-tab li {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+.recipes-container {
+    margin-top: 40px;
+}
+
+.recipe-card {
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.recipe-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-recipe, .delete-recipe {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-recipe {
+    background-color: #ffc107;
+}
+
+.delete-recipe {
+    background-color: #dc3545;
+    color: white;
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="\Resources\header.css">
     <link rel="stylesheet" href="\Resources\share-recipe.css">
-    <script src="/recipe.js"></script>
+    <script src="/Edit-Recipe.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes Haven</title>
 </head>
@@ -61,7 +61,11 @@
             <label for="image">Upload Image</label>
             <input type="file" id="image" name="image" accept="image/*">
 
-            <button type="submit">Submit Recipe</button>
+            <label>
+                <input type="checkbox" id="update-image-checkbox">
+                Check if you're updating the image
+            </label>
+            <button type="submit">Update Recipe</button>
         </form>
     </div>
 </body>

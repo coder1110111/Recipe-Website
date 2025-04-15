@@ -17,6 +17,7 @@ exports.postCreateUser = async (req, res) => {
     const name = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
+    const admin = req.body.is_admin;
 
     if(!name || !email || !password) {
         console.log('Validation Error!');
@@ -34,7 +35,8 @@ exports.postCreateUser = async (req, res) => {
             await User.create({
                 name: name,
                 email: email,
-                password: hash
+                password: hash,
+                is_admin: admin
             });
             res.status(201).json({message: 'User Created!'});
         })
@@ -59,6 +61,9 @@ exports.postLogin = async (req, res) => {
         const user = await User.findOne({where: {email: email}});
         if(!user) {
             return res.status(404).json({message: 'Email does not Exist!'});
+        }
+        if(user.is_banned == true) {
+            return res.status(403).json({message: 'Contact an Admin!'});
         }
         const match = await bcrypt.compare(password, user.password);
         if(!match){

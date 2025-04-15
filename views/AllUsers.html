@@ -1,13 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Resources/header.css">
     <link rel="stylesheet" href="/Resources/main.css">
-    <link rel="stylesheet" href="/Resources/profile.css">
-    <script src="/profile.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/Resources/allUsers.css">
+    <script src="/authors.js"></script>
+    <title>Authors</title>
 </head>
 <body>
     <header>RECIPES HAVEN</header>
@@ -19,21 +20,12 @@
             <a href="http://localhost:3030/users" class="active">Authors</a>
             <a href="http://localhost:3030/activity">Activity Feed</a>
             <a href="http://localhost:3030/user/getMyProfilePage">Profile</a>
-            <a href="http://localhost:3030/user/recipe/favorites">Favorites</a>
+            <a href="http://localhost:3030/recipe/favorites">Favorites</a>
             <a href="http://localhost:3030/user/collections">Collections</a>
         </div>
     </nav>
-
-    <div class="profile-container">
-        <div class="profile-info">
-            <h2 id="username">User Name</h2>
-            <p class="profile-bio" id="bio">Bio will appear here</p>
-        </div>
-        <button id="followBtn" class="follow-btn">Follow</button>
-    </div>
-
-    <div class="user-recipes" id="recipe-list">
-        <!-- User's recipes will be injected here -->
+    <div class="authors-container" id="authorsContainer">
+        <!--Author's card populate-->
     </div>
 </body>
 </html>

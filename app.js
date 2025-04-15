@@ -17,8 +17,10 @@ const recipeRoutes = require('./routes/recipe');
 const reviewRoutes = require('./routes/review');
 const favoriteRoutes = require('./routes/favorite');
 const collectionRoutes = require('./routes/collections');
+const CollectionsRoutes = require('./routes/Collectionss');
 const activityRoutes = require('./routes/activity');
-const userRoutes = require('./routes/user');
+const myRoutes = require('./routes/user');
+const usersRoutes = require('./routes/users')
 
 
 //Model Import
@@ -48,10 +50,14 @@ app.use('/password', passRoutes);
 
 app.use('/home', homeRoutes);
 app.use('/recipe', recipeRoutes);
-app.use('/user',userRoutes);
+app.use('/user',myRoutes);
+app.use('/users', usersRoutes);
 app.use('/review', reviewRoutes);
 app.use('/favorites', favoriteRoutes);
-
+app.use('/activity', activityRoutes);
+app.use('/collection', collectionRoutes);
+app.use('/collections', CollectionsRoutes);
+app.use('/admin', adminRoutes);
 
 
 //404 call
